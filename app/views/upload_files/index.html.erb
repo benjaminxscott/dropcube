@@ -13,8 +13,10 @@
 <table class = "table table-bordered table-striped">
    <thead>.
       <tr>
-         <th>Name</th>
+         <th>Filename</th>
          <th>Download Link</th>
+         <th>Filesize </th>
+         <th>SHA256 Digest</th>
          <th> </th>
       </tr>
    </thead>
@@ -25,6 +27,8 @@
          <tr>
             <td><%= upload_file.attachment %></td>
             <td><%= link_to "Download File", upload_file.attachment_url %></td>
+            <td><%= upload_file.filesize %> KiB </td>
+            <td><%= upload_file.digest %> </td>
             <td><%= button_to "Delete",  upload_file, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete this file?" %></td>
          </tr>
          

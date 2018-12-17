@@ -6,6 +6,12 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
+  
+  process :save_digest_and_size_in_model
+
+  def save_digest_and_size_in_model
+    model.filesize = file.size / 1024
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
