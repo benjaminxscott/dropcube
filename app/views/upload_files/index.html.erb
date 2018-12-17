@@ -25,7 +25,7 @@
       <% @upload_files.each do |upload_file| %>
          
          <tr>
-            <td><%= upload_file.attachment %></td>
+            <td><%= upload_file.filename %></td>
             <td><%= link_to "Download File", upload_file.attachment_url %></td>
             <td><%= upload_file.filesize %> KiB </td>
             <td><%= upload_file.digest %> </td>

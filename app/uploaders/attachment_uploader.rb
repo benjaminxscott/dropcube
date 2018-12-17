@@ -7,14 +7,16 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
   
-  process :save_digest_and_size_in_model
+  process :save_in_model
 
-  def save_digest_and_size_in_model
+  def save_in_model
     data = file.read
     algo = OpenSSL::Digest::SHA256.new
     model.digest = algo.hexdigest(data)
     
     model.filesize = file.size / 1024
+    
+    model.filename = file.filename
   end
 
   # Override the directory where uploaded files will be stored.
