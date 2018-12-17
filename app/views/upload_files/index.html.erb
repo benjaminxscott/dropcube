@@ -1,2 +1,34 @@
-<h1>UploadFiles#index</h1>
-<p>Find me in app/views/upload_files/index.html.erb</p>
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<br />
+
+<%= link_to "Upload a File", new_upload_file_path, class: "btn btn-primary" %>
+<br />
+<br />
+
+<table class = "table table-bordered table-striped">
+   <thead>.
+      <tr>
+         <th>Name</th>
+         <th>Download Link</th>
+         <th> </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @upload_files.each do |upload_file| %>
+         
+         <tr>
+            <td><%= upload_file.attachment %></td>
+            <td><%= link_to "Download File", upload_file.attachment_url %></td>
+            <td><%= button_to "Delete",  upload_file, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete this file?" %></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>
