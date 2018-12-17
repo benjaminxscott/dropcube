@@ -10,6 +10,10 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   process :save_digest_and_size_in_model
 
   def save_digest_and_size_in_model
+    data = file.read
+    algo = OpenSSL::Digest::SHA256.new
+    model.digest = algo.hexdigest(data)
+    
     model.filesize = file.size / 1024
   end
 
