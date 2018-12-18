@@ -7,6 +7,7 @@ gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'secure_headers', '~> 5.0', '>= 5.0.5'
 gem 'openssl', '~> 2.1', '>= 2.1.2'
+gem 'unicorn', '~> 5.4', '>= 5.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'

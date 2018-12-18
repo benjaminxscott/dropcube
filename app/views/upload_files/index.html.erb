@@ -26,7 +26,7 @@
          
          <tr>
             <td><%= upload_file.filename %></td>
-            <td><%= link_to "Download File", upload_file.attachment_url %></td>
+            <td><%= link_to "Download File", upload_file.attachment_url,download: upload_file.filename %></td>
             <td><%= upload_file.filesize %> KiB </td>
             <td><%= upload_file.digest %> </td>
             <td><%= button_to "Delete",  upload_file, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete this file?" %></td>

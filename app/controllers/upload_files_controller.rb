@@ -3,6 +3,14 @@ class UploadFilesController < ApplicationController
       @upload_files = UploadFile.all
    end
    
+   def download
+  send_file(
+    attachment_url,
+    :filename => filename,
+    :disposition => 'attachment'
+  )
+   end
+   
    def new
       @upload_file = UploadFile.new
    end
