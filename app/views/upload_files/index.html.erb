@@ -14,9 +14,9 @@
    <thead>.
       <tr>
          <th>Filename</th>
-         <th>Download Link</th>
          <th>Filesize </th>
          <th>SHA256 Digest</th>
+         <th> </th>
          <th> </th>
       </tr>
    </thead>
@@ -25,11 +25,18 @@
       <% @upload_files.each do |upload_file| %>
          
          <tr>
-            <td><%= upload_file.filename %></td>
-            <td><%= link_to "Download File", upload_file.attachment_url,download: upload_file.filename %></td>
+            
+            <td>
+               <%= form_for upload_file, url: {action: "rename"}, html: {class: "input_form"} do |f| %>
+               <%= f.text_field :filename  %>
+               <%= f.hidden_field :id, :value => upload_file.id %>
+               <% end %>
+            </td>
+               
             <td><%= upload_file.filesize %> KiB </td>
             <td><%= upload_file.digest %> </td>
-            <td><%= button_to "Delete",  upload_file, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete this file?" %></td>
+            <td><%= link_to "Download", upload_file.attachment_url, download: upload_file.filename %></td>
+            <td><%= button_to "Delete",  upload_file, method: :delete %></td>
          </tr>
          
       <% end %>
