@@ -1,17 +1,26 @@
 # DropCube
 Upload files for use with any HTTP 1.1 compliant browser
 
-## Install dependencies
+[Primary dependency is 'carrierwave'](https://github.com/carrierwaveuploader/carrierwave)
+Based on [tutorial](https://www.tutorialspoint.com/ruby-on-rails/rails-file-uploading.htm)
+
+## Local Development
 
 > bundle install 
 
-note: [Primary dependency is 'carrierwave'](https://github.com/carrierwaveuploader/carrierwave)
-note: Based on [tutorial](https://www.tutorialspoint.com/ruby-on-rails/rails-file-uploading.htm)
+> rails server
 
-## Setup webserver
-TODO 
-rails server --binding 0.0.0.0
 
-## Deploy
-https://dropcube-bschmoker.c9users.io
-prod: https://dropcube.herokuapp.com/
+## Deployment
+
+> heroku login
+
+> heroku git:clone -a dropcube
+
+> cd dropcube
+
+> git push heroku master
+
+> heroku run rake db:migrate
+
+> heroku open
