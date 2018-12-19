@@ -4,13 +4,16 @@
    </div>
 <% end %>
 
+<nav class="navbar navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">DropCube</a>
+</nav>
+
 <br />
 
 <%= link_to "Upload a File", new_upload_file_path, class: "btn btn-primary" %>
 <br />
-<br />
 
-<table class = "table table-bordered table-striped">
+<table class = "table table-striped">
    <thead>.
       <tr>
          <th>Filename</th>
@@ -28,15 +31,16 @@
             
             <td>
                <%= form_for upload_file, url: {action: "rename"}, html: {class: "input_form"} do |f| %>
-               <%= f.text_field :filename  %>
+               <%= f.text_field :filename, size:15 %>
                <%= f.hidden_field :id, :value => upload_file.id %>
+               <%= f.submit "Rename", class: "btn btn-outline-secondary" %>
                <% end %>
             </td>
                
             <td><%= upload_file.filesize %> KiB </td>
             <td><%= upload_file.digest %> </td>
-            <td><%= link_to "Download", upload_file.attachment_url, download: upload_file.filename %></td>
-            <td><%= button_to "Delete",  upload_file, method: :delete %></td>
+            <td><%= link_to "Download", upload_file.attachment_url, download: upload_file.filename, class: "btn btn-link" %></td>
+            <td><%= button_to "Delete",  upload_file, method: :delete, class: "btn btn-danger" %></td>
          </tr>
          
       <% end %>

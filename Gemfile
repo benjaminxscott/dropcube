@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.0'
 
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 gem 'secure_headers', '~> 5.0', '>= 5.0.5'
 gem 'openssl', '~> 2.1', '>= 2.1.2'
 gem 'unicorn', '~> 5.4', '>= 5.4.1'
