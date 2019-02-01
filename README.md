@@ -1,12 +1,12 @@
 # DropCube
-Upload files for use with any HTTP 1.1 compliant browser
+Upload files
 
 [Primary dependency is 'carrierwave'](https://github.com/carrierwaveuploader/carrierwave)
 Based on [tutorial](https://www.tutorialspoint.com/ruby-on-rails/rails-file-uploading.htm)
 
 ## Local Development
 
-> bundle install 
+> bundle install
 
 > rails server
 
